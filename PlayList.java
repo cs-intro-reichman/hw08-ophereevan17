@@ -34,20 +34,17 @@ class PlayList {
     /** Appends the given track to the end of this list. 
      *  If the list is full, does nothing and returns false.
      *  Otherwise, appends the track and returns true. */
-    public boolean add(Track track) {
-        if (size == maxSize){
+    public boolean add(Track track) 
+    {
+       if(size == maxSize){
             return false;
-        }
-        for (int i = 0; i < tracks.length(); i++){ //appends track to end of array
-            if (tracks[i] == null){
-                tracks[i] = track;
-                
-                this.size++; //list size + 1
-                return true;
-            }
-        }  
+       }
+       else{
+            tracks[size] = track;
+            this.size++;
+            return true;
+       }
         
-        return false;
     }
 
     /** Returns the data of this list, as a string. Each track appears in a separate line. */
