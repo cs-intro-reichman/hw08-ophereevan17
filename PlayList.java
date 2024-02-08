@@ -35,7 +35,7 @@ class PlayList {
      *  If the list is full, does nothing and returns false.
      *  Otherwise, appends the track and returns true. */
     public boolean add(Track track) {
-        if (this.getsize() == this.getMaxSize()){
+        if (size == maxSize){
             return false;
         }
         for (int i = 0; i < tracks.length(); i++){ //appends track to end of array
