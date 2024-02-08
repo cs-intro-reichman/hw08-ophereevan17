@@ -152,18 +152,20 @@ class PlayList {
             tracks[tracks.length - 1] = null; // Set the last element to null
             size = size - 1; //list size - 1
         }
+    }
 
     /** Removes the first track from this list. If the list is empty, does nothing. */
-    public void removeFirst() 
-    {
-        if (size > 0) { // Check if the list is not empty
-            for (int i = 0; i < (size - 1); i++) {
-                tracks[i] = tracks[i + 1];
-            }
-            tracks[size - 1] = null; // Set the last element to null
-            this.size--; // Update the size of the list
+    public void removeFirst() {
+        if(size == 0){
+            return;
         }
-        else return;
+        tracks[0] = null;
+        for(int j = 0; j < (size - 1); j++)
+        {
+            tracks[j]= tracks[j+1];
+        }
+        tracks[size - 1] = null;
+        this.size--;
     }
     
     /** Adds all the tracks in the other list to the end of this list. 
@@ -197,7 +199,7 @@ class PlayList {
 
             if (tracks[i].getDuration < min){
                 min = tracks[i].getDuration();
-                minIndex() = i;
+                minIndex = i;
             }
         }
         return minIndex();
@@ -227,8 +229,6 @@ class PlayList {
             temp = null;
         }
     }
-}
-
 }
 
 
