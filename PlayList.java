@@ -154,14 +154,16 @@ class PlayList {
         }
 
     /** Removes the first track from this list. If the list is empty, does nothing. */
-    public void removeFirst() {
+    public void removeFirst() 
+    {
         if (size > 0) { // Check if the list is not empty
-            for (int i = 0; i < size - 1; i++) {
+            for (int i = 0; i < (size - 1); i++) {
                 tracks[i] = tracks[i + 1];
             }
             tracks[size - 1] = null; // Set the last element to null
             this.size--; // Update the size of the list
         }
+        else return;
     }
     
     /** Adds all the tracks in the other list to the end of this list. 
