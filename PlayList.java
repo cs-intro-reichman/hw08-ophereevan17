@@ -42,7 +42,7 @@ class PlayList {
             if (tracks[i] == null){
                 tracks[i] = track;
                 
-                size = size + 1; //list size + 1
+                this.size++; //list size + 1
                 return true;
             }
         }  
@@ -111,7 +111,7 @@ class PlayList {
                 tracks[j] = tracks[j-1];
             }
             tracks[i] = track; 
-            size = size + 1; //list size + 1 
+            this.size++; //list size + 1 
             return true;
         }     
     }
@@ -128,7 +128,7 @@ class PlayList {
         for (int j = i; j < tracks.length - 1; j++){
             tracks[j] = tracks[j + 1];
         }
-        size = size - 1; //list size - 1
+        this.size++; //list size - 1
     
         return 0;
     }
@@ -163,7 +163,7 @@ class PlayList {
                 tracks[i] = tracks[i + 1];
             }
             tracks[size - 1] = null; // Set the last element to null
-            size = size - 1; // Update the size of the list
+            this.size--; // Update the size of the list
         }
     }
     
