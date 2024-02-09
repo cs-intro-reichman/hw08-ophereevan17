@@ -185,7 +185,7 @@ class PlayList {
      */
     private int minIndex(int start) {
         int minDuration = 0;
-        int minIndex = 0;
+        int minIndex = start;
 
         if (start < 0 || start > size -1){ //if start is invalid
             return -1;
