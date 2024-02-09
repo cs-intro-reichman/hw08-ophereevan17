@@ -46,9 +46,8 @@ class Track {
         int min = totalSeconds % 60;
         int sec = totalSeconds - min*60;
 
-        String secondsStr = (sec < 10) ? "0" + seconds : String.valueOf(seconds); //add leading zero to seconds less than 10
-            
-        duration = min + ":" + secondsStr; 
+        String secondsStr = (sec < 10) ? "0" + sec : "" + sec; //add leading zero to seconds less than 10
+        duration = "" + min + ":" + secondsStr; 
        
         return duration;
     }
