@@ -61,14 +61,11 @@ class PlayList {
 
     /** Removes the last track from this list. If the list is empty, does nothing. */
     public void removeLast() {
-        if (tracks[0] != null) {
-            for (int i = 0; i < tracks.length; i++) {
-                if (tracks[i + 1] == null) { // Check if the next place in array is empty
-                    tracks[i] = null; // Replace current place with null
-                    this.size--; //list size - 1
-                    break; // After finding the empty place in array and removing the previous, break the loop
-                }
-            }
+        if (size != 0) 
+        {
+            int last = size - 1;
+            tracks[last] = null;
+            this.size--;
         }
     }
     
