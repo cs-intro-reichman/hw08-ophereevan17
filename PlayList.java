@@ -65,7 +65,7 @@ class PlayList {
             for (int i = 0; i < tracks.length; i++) {
                 if (tracks[i + 1] == null) { // Check if the next place in array is empty
                     tracks[i] = null; // Replace current place with null
-                    size = size - 1; //list size - 1
+                    this.size--; //list size - 1
                     break; // After finding the empty place in array and removing the previous, break the loop
                 }
             }
@@ -77,7 +77,7 @@ class PlayList {
         int total = 0;
         for (int i = 0; i < size; i++) {
         
-            total = total + tracks[i].getDuration();
+            total += tracks[i].getDuration();
         }
         return total;
     }
