@@ -117,17 +117,14 @@ class PlayList {
     /** Removes the track in the given index from this list.
      *  If the list is empty, or the given index is negative or too big for this list, 
      *  does nothing and returns -1. */
-    public int remove(int i) {
-        if (i < 0 || i >= size || size == 0){
-            return -1;
+    public void remove(int i) {
+        if (i < 0 || i >= size || size == 0) return;
         }
-    
+        tracks[i] = null;
         for (int j = i; j < size - 1; j++){
             tracks[j] = tracks[j + 1];
         }
-        this.size++; //list size - 1
-    
-        return 0;
+        this.size--; //list size - 1
     }
 
     /** Removes the first track that has the given title from this list.
@@ -188,20 +185,19 @@ class PlayList {
      *  If start is negative or greater than size - 1, returns -1.
      */
     private int minIndex(int start) {
-        int min = 0;
+        int minDuration = 0;
         int minIndex = 0;
 
-        if (start < 0 || start > size -1){
+        if (start < 0 || start > size -1){ //if start is invalid
             return -1;
         }
-        if (tracks[start] != null){
-            min = tracks[start].getDuration();
-            for (int i = start + 1; i < size - 1; i++){
-
-                if (tracks[i] != null && tracks[i].getDuration() < min){
-                    min = tracks[i].getDuration();
-                    minIndex = i;
-                }
+        minDuration = tracks[start].getDuration();
+        for (int i = start + 1; i < size; i++)
+        {
+            if (tracks[i].getDuration() < minDuration)
+            {
+                minDuration = tracks[i].getDuration();
+                minIndex = i;
             }
         }
         return minIndex;
@@ -221,13 +217,13 @@ class PlayList {
      *  the list on which it was called (this list). */
     public void sortedInPlace() {
         Track temp = null;
-        int minIndex = 0;
+        int minInd = 0;
         for (int i = 0; i < size; i++)
         {
-            minIndex = this.minIndex(i); //starting point is place 0, gets minimum in this playlist of all tracks that cme after
+            minInd = minIndex(i); //starting point is place 0, gets minimum in this playlist of all tracks that cme after
             temp = tracks[i]; //temporarily saves the i track in temp
-            tracks[i] = tracks[minIndex];
-            tracks[minIndex] = temp;
+            tracks[i] = tracks[minInd];
+            tracks[minInd] = temp;
             temp = null;
         }
     }
