@@ -118,7 +118,7 @@ class PlayList {
      *  If the list is empty, or the given index is negative or too big for this list, 
      *  does nothing and returns -1. */
     public int remove(int i) {
-        if (i < 0 || i >= size || this.getSize() == 0){
+        if (i < 0 || i >= size || size == 0){
             return -1;
         }
     
@@ -224,7 +224,7 @@ class PlayList {
         int minIndex = 0;
         for (int i = 0; i < size; i++)
         {
-            minIndex = minIndex(i); //starting point is place 0, minimum of all tracks
+            minIndex = this.minIndex(i); //starting point is place 0, gets minimum in this playlist of all tracks that cme after
             temp = tracks[i]; //temporarily saves the i track in temp
             tracks[i] = tracks[minIndex];
             tracks[minIndex] = temp;
