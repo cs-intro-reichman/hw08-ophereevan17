@@ -48,17 +48,21 @@ class Track {
 
         if (totalSeconds >= 60)
         {
-            min = totalSeconds % 60;
-            sec = totalSeconds - min*60;
+            min = totalSeconds / 60;
+            sec = totalSeconds % 60;
         }
         else
         {
             sec = totalSeconds;
-            
-        String secondsStr = (sec < 10) ? "0" + sec : "" + sec; //add leading zero to seconds less than 10
-        duration = "" + min + ":" + secondsStr; 
         }
-       
+        if(sec < 10)
+        {
+            duration = min + ":0" + sec;
+        }
+        else
+        {
+            duration = min + ":" + sec;
+        }
         return duration;
     }
 
