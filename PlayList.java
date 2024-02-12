@@ -42,7 +42,6 @@ class PlayList {
        else{
             tracks[size] = track;
             this.size++;
-            System.out.println(size);
             return true;
        }
         
