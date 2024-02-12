@@ -14,12 +14,12 @@ class PlayList {
 
     /** Returns the maximum size of this play list. */ 
     public int getMaxSize() {
-        return maxSize;
+        return this.maxSize;
     }
     
     /** Returns the current number of tracks in this play list. */ 
     public int getSize() {
-        return size;
+        return this.size;
     }
 
     /** Method to get a track by index */
@@ -42,6 +42,7 @@ class PlayList {
        else{
             tracks[size] = track;
             this.size++;
+            System.out.println(size);
             return true;
        }
         
@@ -97,11 +98,11 @@ class PlayList {
      *  is full, does nothing and returns false. Otherwise, inserts the track and
      *  returns true. */
     public boolean add(int i, Track track) {
-        if (i < 0 || i >= size || this.getSize() == this.getMaxSize()){
+        if (i < 0 || i > size || this.getSize() == this.getMaxSize()){
             return false;
         }
         else {
-            for (int j = tracks.length - 1; j > i; j--){
+            for (int j = size - 1; j > i; j--){
                 tracks[j] = tracks[j-1];
             }
             tracks[i] = track; 
