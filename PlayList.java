@@ -26,7 +26,7 @@ class PlayList {
     public Track getTrack(int index) {
         if (index >= 0 && index < size) {
             return tracks[index];
-        } else {
+        } else {// redundant else
             return null;
         }
     }
@@ -39,7 +39,7 @@ class PlayList {
        if(size == maxSize){
             return false;
        }
-       else{
+       else{// redundant else
             tracks[size] = track;
             this.size++;
             return true;
@@ -182,6 +182,7 @@ class PlayList {
      */
     private int minIndex(int start) 
     {
+        // this function is correct, it fails because you are accessing null, I believe it is because you have some kind of error in remove
         if(start <= -1 || start >= size){
             return -1;
         } 
