@@ -101,7 +101,7 @@ class PlayList {
             return false;
         }
         else {
-            for (int j = size - 1; j > i; j--){
+            for (int j = size; j > i; j--){
                 tracks[j] = tracks[j-1];
             }
             tracks[i] = track; 
@@ -115,11 +115,14 @@ class PlayList {
      *  If the list is empty, or the given index is negative or too big for this list, 
      *  does nothing and returns -1. */
     public void remove(int i) {
-        if (i < 0 || i >= size || size == 0) return;
-        tracks[i] = null;
-        for (int j = i; j < (size - 1); j++){
-            tracks[j] = tracks[j + 1];
+        if (i < 0 || i >= this.size || this.size == 0){
+            return;
+        } 
+        this.tracks[i] = null;
+        for (int j = i; j < (this.size - 1); j++){
+            this.tracks[j] = this.tracks[j + 1];
         }
+        this.tracks[this.size - 1] = null;
         this.size--; //list size - 1
     }
 
